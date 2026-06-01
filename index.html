@@ -26,17 +26,13 @@
     --radius: 12px;
     --radius-sm: 8px;
   }
-
   * { box-sizing: border-box; margin: 0; padding: 0; }
-
   body {
     font-family: 'IBM Plex Sans Thai', 'Sarabun', sans-serif;
     background: #f0faf6;
     min-height: 100vh;
     color: var(--gray-800);
   }
-
-  /* background decoration */
   body::before {
     content: '';
     position: fixed;
@@ -53,247 +49,48 @@
     background: radial-gradient(circle, rgba(216,90,48,0.08) 0%, transparent 70%);
     pointer-events: none;
   }
+  .container { max-width: 480px; margin: 0 auto; padding: 2rem 1rem 4rem; }
 
-  .container {
-    max-width: 480px;
-    margin: 0 auto;
-    padding: 2rem 1rem 4rem;
-  }
-
-  /* HEADER */
-  .header {
-    text-align: center;
-    margin-bottom: 2rem;
-    animation: fadeDown 0.5s ease both;
-  }
-  .badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: var(--green);
-    color: #fff;
-    font-size: 12px;
-    font-weight: 500;
-    padding: 5px 14px;
-    border-radius: 20px;
-    margin-bottom: 12px;
-    letter-spacing: 0.02em;
-  }
-  .badge::before {
-    content: '●';
-    font-size: 8px;
-    animation: pulse 2s infinite;
-  }
-  @keyframes pulse {
-    0%,100%{opacity:1} 50%{opacity:0.3}
-  }
-  .header h1 {
-    font-size: 26px;
-    font-weight: 600;
-    color: var(--gray-800);
-    margin-bottom: 6px;
-    line-height: 1.3;
-  }
-  .header p {
-    font-size: 14px;
-    color: var(--gray-600);
-  }
-
-  /* STATS ROW */
-  .stats-row {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    margin-bottom: 1.25rem;
-    animation: fadeUp 0.5s 0.1s ease both;
-  }
-  .stat-card {
-    background: var(--white);
-    border-radius: var(--radius-sm);
-    padding: 14px 10px;
-    text-align: center;
-    box-shadow: var(--shadow);
-  }
-  .stat-label {
-    font-size: 11px;
-    color: var(--gray-400);
-    margin-bottom: 4px;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-  }
-  .stat-val {
-    font-size: 18px;
-    font-weight: 600;
-    color: var(--gray-800);
-  }
-  .stat-val.green { color: var(--green-dark); }
-  .stat-val.red { color: var(--coral); }
-
-  /* PROGRESS */
-  .prog-section {
-    background: var(--white);
-    border-radius: var(--radius);
-    padding: 1rem 1.25rem;
-    margin-bottom: 1rem;
-    box-shadow: var(--shadow);
-    animation: fadeUp 0.5s 0.15s ease both;
-  }
-  .prog-labels {
-    display: flex;
-    justify-content: space-between;
-    font-size: 12px;
-    color: var(--gray-600);
-    margin-bottom: 8px;
-    font-weight: 500;
-  }
-  .prog-track {
-    height: 10px;
-    background: var(--gray-100);
-    border-radius: 20px;
-    overflow: hidden;
-  }
-  .prog-bar {
-    height: 100%;
-    background: linear-gradient(90deg, var(--green) 0%, #5DCAA5 100%);
-    border-radius: 20px;
-    transition: width 0.4s cubic-bezier(0.34,1.56,0.64,1);
-  }
-  .prog-bar.full {
-    background: linear-gradient(90deg, var(--coral) 0%, #F09575 100%);
-  }
-  .prog-sub {
-    display: flex;
-    gap: 16px;
-    margin-top: 8px;
-  }
-  .prog-dot {
+  /* LOGIN SCREEN */
+  .login-screen {
+    min-height: 100vh;
     display: flex;
     align-items: center;
-    gap: 5px;
-    font-size: 11px;
-    color: var(--gray-600);
+    justify-content: center;
+    padding: 2rem 1rem;
   }
-  .dot {
-    width: 8px; height: 8px;
-    border-radius: 50%;
-  }
-  .dot.g { background: var(--green); }
-  .dot.r { background: var(--coral); }
-
-  /* MAIN CARD */
-  .main-card {
+  .login-box {
     background: var(--white);
     border-radius: var(--radius);
-    padding: 1.5rem;
+    padding: 2rem 1.75rem;
     box-shadow: var(--shadow-md);
-    margin-bottom: 1rem;
-    animation: fadeUp 0.5s 0.2s ease both;
+    width: 100%;
+    max-width: 360px;
+    text-align: center;
+    animation: fadeDown 0.4s ease both;
   }
-  .section-title {
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--gray-400);
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    margin-bottom: 1rem;
-  }
-
-  /* INPUT */
-  .input-wrap {
-    position: relative;
-    margin-bottom: 1rem;
-  }
-  .currency-prefix {
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 22px;
-    font-weight: 300;
-    color: var(--gray-400);
-    pointer-events: none;
-  }
-  .amount-input {
+  .login-logo { font-size: 40px; margin-bottom: 12px; }
+  .login-box h2 { font-size: 20px; font-weight: 600; margin-bottom: 6px; color: var(--gray-800); }
+  .login-box p { font-size: 13px; color: var(--gray-600); margin-bottom: 1.5rem; line-height: 1.6; }
+  .name-input {
     width: 100%;
     font-family: inherit;
-    font-size: 36px;
-    font-weight: 600;
-    color: var(--gray-800);
-    border: none;
-    border-bottom: 2px solid var(--gray-200);
-    background: transparent;
-    padding: 8px 0 8px 28px;
+    font-size: 16px;
+    font-weight: 500;
+    border: 1.5px solid var(--gray-200);
+    border-radius: var(--radius-sm);
+    padding: 12px 14px;
     outline: none;
+    color: var(--gray-800);
+    background: var(--gray-50);
     transition: border-color 0.2s;
-  }
-  .amount-input:focus { border-bottom-color: var(--green); }
-  .amount-input::placeholder { color: var(--gray-200); }
-
-  /* OVER LIMIT */
-  .over-msg {
-    display: none;
-    background: #FFF3F0;
-    border: 1px solid #F5C4B3;
-    border-radius: var(--radius-sm);
-    padding: 10px 12px;
-    font-size: 12px;
-    color: var(--coral);
-    margin-bottom: 1rem;
-    line-height: 1.6;
-  }
-
-  /* RESULT BOXES */
-  .result-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    margin-bottom: 1.25rem;
-  }
-  .result-box {
-    border-radius: var(--radius-sm);
-    padding: 16px 14px;
     text-align: center;
-    transition: transform 0.15s;
+    margin-bottom: 10px;
   }
-  .result-box:hover { transform: translateY(-1px); }
-  .result-box.gov { background: var(--green-light); }
-  .result-box.user { background: var(--coral-light); }
-  .r-icon {
-    font-size: 20px;
-    margin-bottom: 4px;
-  }
-  .r-label {
-    font-size: 11px;
-    font-weight: 600;
-    margin-bottom: 6px;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-  }
-  .result-box.gov .r-label { color: var(--green-dark); }
-  .result-box.user .r-label { color: var(--coral); }
-  .r-amount {
-    font-size: 24px;
-    font-weight: 600;
-    transition: all 0.2s;
-  }
-  .result-box.gov .r-amount { color: var(--green-dark); }
-  .result-box.user .r-amount { color: var(--coral); }
-  .r-pct {
-    font-size: 11px;
-    opacity: 0.7;
-    margin-top: 2px;
-  }
-  .result-box.gov .r-pct { color: var(--green-dark); }
-  .result-box.user .r-pct { color: var(--coral); }
-
-  /* BUTTONS */
-  .btn-row {
-    display: flex;
-    gap: 8px;
-  }
-  .btn-add {
-    flex: 1;
+  .name-input:focus { border-color: var(--green); background: #fff; }
+  .name-input::placeholder { color: var(--gray-400); font-weight: 400; }
+  .btn-login {
+    width: 100%;
     background: var(--green);
     color: #fff;
     border: none;
@@ -304,140 +101,179 @@
     font-weight: 600;
     cursor: pointer;
     transition: background 0.15s, transform 0.1s;
+    margin-bottom: 10px;
+  }
+  .btn-login:hover { background: var(--green-dark); }
+  .btn-login:active { transform: scale(0.98); }
+  .login-note { font-size: 11px; color: var(--gray-400); line-height: 1.6; }
+
+  /* USER SWITCHER */
+  .user-bar {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 6px;
-  }
-  .btn-add:hover { background: var(--green-dark); }
-  .btn-add:active { transform: scale(0.98); }
-  .btn-clear {
-    background: transparent;
-    border: 1.5px solid var(--gray-200);
+    justify-content: space-between;
+    background: var(--white);
     border-radius: var(--radius-sm);
-    padding: 13px 16px;
-    font-family: inherit;
+    padding: 10px 14px;
+    margin-bottom: 1.25rem;
+    box-shadow: var(--shadow);
+    animation: fadeDown 0.4s ease both;
+  }
+  .user-info { display: flex; align-items: center; gap: 10px; }
+  .user-avatar {
+    width: 34px; height: 34px;
+    border-radius: 50%;
+    background: var(--green-light);
+    color: var(--green-dark);
     font-size: 14px;
+    font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .user-name { font-size: 14px; font-weight: 600; color: var(--gray-800); }
+  .user-sub { font-size: 11px; color: var(--gray-400); }
+  .btn-switch {
+    background: none;
+    border: 1px solid var(--gray-200);
+    border-radius: 6px;
+    padding: 5px 10px;
+    font-family: inherit;
+    font-size: 12px;
     color: var(--gray-600);
     cursor: pointer;
     transition: background 0.15s;
   }
-  .btn-clear:hover { background: var(--gray-50); }
+  .btn-switch:hover { background: var(--gray-50); }
 
-  .warning-note {
-    font-size: 11px;
-    color: var(--gray-400);
-    text-align: center;
-    margin-top: 12px;
-    line-height: 1.6;
+  /* HEADER */
+  .header { text-align: center; margin-bottom: 1.5rem; animation: fadeDown 0.5s ease both; }
+  .badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: var(--green); color: #fff;
+    font-size: 12px; font-weight: 500;
+    padding: 5px 14px; border-radius: 20px;
+    margin-bottom: 10px; letter-spacing: 0.02em;
   }
+  .badge::before { content: '●'; font-size: 8px; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+  .header h1 { font-size: 24px; font-weight: 600; color: var(--gray-800); margin-bottom: 4px; }
+  .header p { font-size: 13px; color: var(--gray-600); }
+
+  /* STATS */
+  .stats-row {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 10px; margin-bottom: 1.25rem;
+    animation: fadeUp 0.5s 0.1s ease both;
+  }
+  .stat-card { background: var(--white); border-radius: var(--radius-sm); padding: 14px 10px; text-align: center; box-shadow: var(--shadow); }
+  .stat-label { font-size: 11px; color: var(--gray-400); margin-bottom: 4px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.04em; }
+  .stat-val { font-size: 18px; font-weight: 600; color: var(--gray-800); }
+  .stat-val.green { color: var(--green-dark); }
+  .stat-val.red { color: var(--coral); }
+
+  /* PROGRESS */
+  .prog-section {
+    background: var(--white); border-radius: var(--radius);
+    padding: 1rem 1.25rem; margin-bottom: 1rem;
+    box-shadow: var(--shadow); animation: fadeUp 0.5s 0.15s ease both;
+  }
+  .prog-labels { display: flex; justify-content: space-between; font-size: 12px; color: var(--gray-600); margin-bottom: 8px; font-weight: 500; }
+  .prog-track { height: 10px; background: var(--gray-100); border-radius: 20px; overflow: hidden; }
+  .prog-bar { height: 100%; background: linear-gradient(90deg, var(--green) 0%, #5DCAA5 100%); border-radius: 20px; transition: width 0.4s cubic-bezier(0.34,1.56,0.64,1); }
+  .prog-bar.full { background: linear-gradient(90deg, var(--coral) 0%, #F09575 100%); }
+  .prog-sub { display: flex; gap: 16px; margin-top: 8px; }
+  .prog-dot { display: flex; align-items: center; gap: 5px; font-size: 11px; color: var(--gray-600); }
+  .dot { width: 8px; height: 8px; border-radius: 50%; }
+  .dot.g { background: var(--green); }
+  .dot.r { background: var(--coral); }
+
+  /* MAIN CARD */
+  .main-card {
+    background: var(--white); border-radius: var(--radius);
+    padding: 1.5rem; box-shadow: var(--shadow-md);
+    margin-bottom: 1rem; animation: fadeUp 0.5s 0.2s ease both;
+  }
+  .section-title { font-size: 13px; font-weight: 600; color: var(--gray-400); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 1rem; }
+  .input-wrap { position: relative; margin-bottom: 1rem; }
+  .currency-prefix { position: absolute; left: 0; top: 50%; transform: translateY(-50%); font-size: 22px; font-weight: 300; color: var(--gray-400); pointer-events: none; }
+  .amount-input { width: 100%; font-family: inherit; font-size: 36px; font-weight: 600; color: var(--gray-800); border: none; border-bottom: 2px solid var(--gray-200); background: transparent; padding: 8px 0 8px 28px; outline: none; transition: border-color 0.2s; }
+  .amount-input:focus { border-bottom-color: var(--green); }
+  .amount-input::placeholder { color: var(--gray-200); }
+  .over-msg { display: none; background: #FFF3F0; border: 1px solid #F5C4B3; border-radius: var(--radius-sm); padding: 10px 12px; font-size: 12px; color: var(--coral); margin-bottom: 1rem; line-height: 1.6; }
+  .result-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 1.25rem; }
+  .result-box { border-radius: var(--radius-sm); padding: 16px 14px; text-align: center; transition: transform 0.15s; }
+  .result-box:hover { transform: translateY(-1px); }
+  .result-box.gov { background: var(--green-light); }
+  .result-box.user { background: var(--coral-light); }
+  .r-icon { font-size: 20px; margin-bottom: 4px; }
+  .r-label { font-size: 11px; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.04em; }
+  .result-box.gov .r-label { color: var(--green-dark); }
+  .result-box.user .r-label { color: var(--coral); }
+  .r-amount { font-size: 24px; font-weight: 600; transition: all 0.2s; }
+  .result-box.gov .r-amount { color: var(--green-dark); }
+  .result-box.user .r-amount { color: var(--coral); }
+  .r-pct { font-size: 11px; opacity: 0.7; margin-top: 2px; }
+  .result-box.gov .r-pct { color: var(--green-dark); }
+  .result-box.user .r-pct { color: var(--coral); }
+  .btn-row { display: flex; gap: 8px; }
+  .btn-add { flex: 1; background: var(--green); color: #fff; border: none; border-radius: var(--radius-sm); padding: 13px; font-family: inherit; font-size: 15px; font-weight: 600; cursor: pointer; transition: background 0.15s, transform 0.1s; display: flex; align-items: center; justify-content: center; gap: 6px; }
+  .btn-add:hover { background: var(--green-dark); }
+  .btn-add:active { transform: scale(0.98); }
+  .btn-clear { background: transparent; border: 1.5px solid var(--gray-200); border-radius: var(--radius-sm); padding: 13px 16px; font-family: inherit; font-size: 14px; color: var(--gray-600); cursor: pointer; transition: background 0.15s; }
+  .btn-clear:hover { background: var(--gray-50); }
+  .warning-note { font-size: 11px; color: var(--gray-400); text-align: center; margin-top: 12px; line-height: 1.6; }
 
   /* HISTORY */
-  .history-card {
-    background: var(--white);
-    border-radius: var(--radius);
-    padding: 1.25rem 1.5rem;
-    box-shadow: var(--shadow);
-    animation: fadeUp 0.5s 0.25s ease both;
-  }
-  .history-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 1rem;
-  }
+  .history-card { background: var(--white); border-radius: var(--radius); padding: 1.25rem 1.5rem; box-shadow: var(--shadow); animation: fadeUp 0.5s 0.25s ease both; }
+  .history-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; }
   .history-header .section-title { margin-bottom: 0; }
-  .btn-clear-hist {
-    background: none;
-    border: none;
-    font-family: inherit;
-    font-size: 12px;
-    color: var(--gray-400);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    padding: 4px 8px;
-    border-radius: 6px;
-    transition: background 0.15s;
-  }
+  .btn-clear-hist { background: none; border: none; font-family: inherit; font-size: 12px; color: var(--gray-400); cursor: pointer; display: flex; align-items: center; gap: 4px; padding: 4px 8px; border-radius: 6px; transition: background 0.15s; }
   .btn-clear-hist:hover { background: var(--gray-100); color: var(--coral); }
-
   .hist-list { display: flex; flex-direction: column; gap: 8px; }
-
-  .hist-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 12px 14px;
-    background: var(--gray-50);
-    border-radius: var(--radius-sm);
-    animation: slideIn 0.3s ease both;
-    border-left: 3px solid var(--green);
-  }
-  @keyframes slideIn {
-    from { opacity: 0; transform: translateX(-8px); }
-    to   { opacity: 1; transform: translateX(0); }
-  }
-  .hist-left .h-total {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--gray-800);
-  }
-  .hist-left .h-time {
-    font-size: 11px;
-    color: var(--gray-400);
-    margin-top: 2px;
-  }
-  .hist-right {
-    display: flex;
-    gap: 14px;
-    text-align: right;
-  }
-  .hist-col .hc-label {
-    font-size: 10px;
-    color: var(--gray-400);
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-  }
-  .hist-col .hc-val {
-    font-size: 13px;
-    font-weight: 600;
-    margin-top: 1px;
-  }
+  .hist-item { display: flex; align-items: center; justify-content: space-between; padding: 12px 14px; background: var(--gray-50); border-radius: var(--radius-sm); animation: slideIn 0.3s ease both; border-left: 3px solid var(--green); }
+  @keyframes slideIn { from { opacity: 0; transform: translateX(-8px); } to { opacity: 1; transform: translateX(0); } }
+  .hist-left .h-total { font-size: 14px; font-weight: 600; color: var(--gray-800); }
+  .hist-left .h-time { font-size: 11px; color: var(--gray-400); margin-top: 2px; }
+  .hist-right { display: flex; gap: 14px; text-align: right; }
+  .hist-col .hc-label { font-size: 10px; color: var(--gray-400); text-transform: uppercase; letter-spacing: 0.04em; }
+  .hist-col .hc-val { font-size: 13px; font-weight: 600; margin-top: 1px; }
   .hist-col .hc-val.g { color: var(--green-dark); }
   .hist-col .hc-val.r { color: var(--coral); }
-
-  .empty-state {
-    text-align: center;
-    padding: 2rem 0;
-    color: var(--gray-400);
-    font-size: 13px;
-  }
+  .empty-state { text-align: center; padding: 2rem 0; color: var(--gray-400); font-size: 13px; }
   .empty-icon { font-size: 32px; margin-bottom: 8px; opacity: 0.4; }
+  .footer { text-align: center; font-size: 11px; color: var(--gray-400); margin-top: 2rem; animation: fadeUp 0.5s 0.3s ease both; }
 
-  /* FOOTER */
-  .footer {
-    text-align: center;
-    font-size: 11px;
-    color: var(--gray-400);
-    margin-top: 2rem;
-    animation: fadeUp 0.5s 0.3s ease both;
+  /* MONTH RESET BANNER */
+  .reset-banner {
+    background: #FFF8E7;
+    border: 1px solid #FAC775;
+    border-radius: var(--radius-sm);
+    padding: 10px 14px;
+    font-size: 12px;
+    color: #854F0B;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
   }
+  .btn-reset-month {
+    background: #BA7517;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 5px 10px;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .btn-reset-month:hover { background: #854F0B; }
 
-  /* ANIMATIONS */
-  @keyframes fadeDown {
-    from { opacity: 0; transform: translateY(-12px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(12px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  /* MOBILE */
+  @keyframes fadeDown { from { opacity: 0; transform: translateY(-12px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
   @media (max-width: 400px) {
-    .header h1 { font-size: 22px; }
+    .header h1 { font-size: 20px; }
     .amount-input { font-size: 28px; }
     .r-amount { font-size: 20px; }
   }
@@ -445,13 +281,44 @@
 </head>
 <body>
 
-<div class="container">
+<!-- LOGIN SCREEN -->
+<div class="login-screen" id="login-screen">
+  <div class="login-box">
+    <div class="login-logo">🧧</div>
+    <h2>ไทยช่วยไทยพลัส 60/40</h2>
+    <p>กรอกชื่อของคุณเพื่อเริ่มใช้งาน<br>ระบบจะจำประวัติของคุณไว้ในเครื่องนี้</p>
+    <input class="name-input" type="text" id="name-input" placeholder="ชื่อของคุณ เช่น สมชาย" maxlength="30">
+    <button class="btn-login" onclick="doLogin()">เริ่มใช้งาน →</button>
+    <p class="login-note">ข้อมูลเก็บในเบราว์เซอร์ของคุณเท่านั้น ไม่ได้ส่งไปที่ใด</p>
+  </div>
+</div>
+
+<!-- MAIN APP -->
+<div class="container" id="main-app" style="display:none">
+
+  <!-- USER BAR -->
+  <div class="user-bar">
+    <div class="user-info">
+      <div class="user-avatar" id="user-avatar">ส</div>
+      <div>
+        <div class="user-name" id="user-name-display">สมชาย</div>
+        <div class="user-sub">ข้อมูลของฉัน · เดือนนี้</div>
+      </div>
+    </div>
+    <button class="btn-switch" onclick="switchUser()">เปลี่ยนผู้ใช้</button>
+  </div>
 
   <!-- HEADER -->
   <div class="header">
     <div class="badge">ไทยช่วยไทยพลัส · เริ่ม 1 มิ.ย. 2569</div>
     <h1>คำนวณสิทธิ์ 60/40</h1>
     <p>รู้ทันทีว่าต้องจ่ายเองเท่าไหร่ และสิทธิ์เหลืออีกเท่าไหร่</p>
+  </div>
+
+  <!-- MONTH RESET BANNER -->
+  <div class="reset-banner" id="reset-banner" style="display:none">
+    <span>📅 ขึ้นเดือนใหม่แล้ว — ต้องการรีเซ็ตยอดสิทธิ์ใหม่ไหม?</span>
+    <button class="btn-reset-month" onclick="resetMonth()">รีเซ็ตเดือนใหม่</button>
   </div>
 
   <!-- STATS -->
@@ -488,25 +355,13 @@
   <!-- CALCULATOR -->
   <div class="main-card">
     <div class="section-title">คำนวณรายการ</div>
-
     <div class="input-wrap">
       <span class="currency-prefix">฿</span>
-      <input
-        class="amount-input"
-        type="number"
-        id="amount"
-        placeholder="0"
-        min="0"
-        step="0.01"
-        inputmode="decimal"
-        autofocus
-      >
+      <input class="amount-input" type="number" id="amount" placeholder="0" min="0" step="0.01" inputmode="decimal">
     </div>
-
     <div class="over-msg" id="over-msg">
       ⚠ ยอดเกินสิทธิ์คงเหลือ — รัฐจ่ายได้เพียง <strong id="remain-gov-amt">฿0</strong> ส่วนที่เกินคุณต้องจ่ายเองทั้งหมด
     </div>
-
     <div class="result-grid">
       <div class="result-box gov">
         <div class="r-icon">🏦</div>
@@ -521,7 +376,6 @@
         <div class="r-pct" id="user-pct"></div>
       </div>
     </div>
-
     <div class="btn-row">
       <button class="btn-add" onclick="addToHistory()">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
@@ -529,10 +383,7 @@
       </button>
       <button class="btn-clear" onclick="clearInput()">ล้าง</button>
     </div>
-
-    <p class="warning-note">
-      เงินสิทธิ์คงเหลือไม่ทบเดือนถัดไป · เครื่องมือนี้ไม่ใช่แอปทางการของรัฐ
-    </p>
+    <p class="warning-note">เงินสิทธิ์คงเหลือไม่ทบเดือนถัดไป · เครื่องมือนี้ไม่ใช่แอปทางการของรัฐ</p>
   </div>
 
   <!-- HISTORY -->
@@ -554,16 +405,94 @@
 
   <div class="footer">
     เครื่องมือคำนวณเบื้องต้น ไม่ใช่แอปทางการของรัฐบาล<br>
-    ข้อมูลจะหายเมื่อปิดหน้าเว็บ
+    ข้อมูลเก็บในเบราว์เซอร์ของคุณ · แต่ละคนมีประวัติแยกกัน
   </div>
 
 </div>
 
 <script>
 const MAX = 1000;
+let currentUser = null;
 let usedGov = 0;
 let history = [];
 
+// --- Storage helpers ---
+function storageKey(user, field) {
+  return 'thai6040_' + encodeURIComponent(user) + '_' + field;
+}
+function saveData() {
+  if (!currentUser) return;
+  localStorage.setItem(storageKey(currentUser, 'usedGov'), usedGov.toString());
+  localStorage.setItem(storageKey(currentUser, 'history'), JSON.stringify(history));
+  localStorage.setItem(storageKey(currentUser, 'month'), getCurrentMonth());
+}
+function loadData(user) {
+  const savedMonth = localStorage.getItem(storageKey(user, 'month'));
+  const thisMonth = getCurrentMonth();
+  usedGov = parseFloat(localStorage.getItem(storageKey(user, 'usedGov'))) || 0;
+  history = JSON.parse(localStorage.getItem(storageKey(user, 'history')) || '[]');
+  // Show reset banner if month changed
+  document.getElementById('reset-banner').style.display =
+    (savedMonth && savedMonth !== thisMonth) ? 'flex' : 'none';
+}
+function getCurrentMonth() {
+  const d = new Date();
+  return d.getFullYear() + '-' + (d.getMonth() + 1);
+}
+
+// --- Login ---
+function doLogin() {
+  const name = document.getElementById('name-input').value.trim();
+  if (!name) { document.getElementById('name-input').focus(); return; }
+  currentUser = name;
+  localStorage.setItem('thai6040_lastUser', name);
+  showApp();
+}
+document.getElementById('name-input').addEventListener('keydown', e => {
+  if (e.key === 'Enter') doLogin();
+});
+
+function showApp() {
+  loadData(currentUser);
+  document.getElementById('login-screen').style.display = 'none';
+  document.getElementById('main-app').style.display = 'block';
+  // User bar
+  document.getElementById('user-name-display').textContent = currentUser;
+  document.getElementById('user-avatar').textContent = currentUser.charAt(0).toUpperCase();
+  updateStats();
+  renderHistory();
+  document.getElementById('amount').focus();
+}
+
+function switchUser() {
+  if (!confirm('เปลี่ยนผู้ใช้? ข้อมูลของคุณยังถูกเก็บไว้ สามารถกลับมาได้ทีหลัง')) return;
+  currentUser = null;
+  document.getElementById('main-app').style.display = 'none';
+  document.getElementById('login-screen').style.display = 'flex';
+  document.getElementById('name-input').value = '';
+  document.getElementById('name-input').focus();
+}
+
+function resetMonth() {
+  usedGov = 0;
+  history = [];
+  saveData();
+  document.getElementById('reset-banner').style.display = 'none';
+  updateStats();
+  renderHistory();
+}
+
+// --- Auto-login if last user exists ---
+window.addEventListener('load', () => {
+  const last = localStorage.getItem('thai6040_lastUser');
+  if (last) {
+    document.getElementById('name-input').value = last;
+    currentUser = last;
+    showApp();
+  }
+});
+
+// --- Calculator ---
 const amtInput = document.getElementById('amount');
 const govAmtEl = document.getElementById('gov-amt');
 const userAmtEl = document.getElementById('user-amt');
@@ -586,10 +515,8 @@ function calc() {
   const remain = MAX - usedGov;
   const govPay = Math.min(val * 0.6, remain);
   const userPay = val - govPay;
-
   govAmtEl.textContent = fmt(govPay);
   userAmtEl.textContent = fmt(userPay);
-
   if (val > 0) {
     govPctEl.textContent = ((govPay / val) * 100).toFixed(0) + '% ของยอดสินค้า';
     userPctEl.textContent = ((userPay / val) * 100).toFixed(0) + '% ของยอดสินค้า';
@@ -597,7 +524,6 @@ function calc() {
     govPctEl.textContent = '';
     userPctEl.textContent = '';
   }
-
   if (val * 0.6 > remain && val > 0) {
     overMsg.style.display = 'block';
     remainGovAmt.textContent = fmt(remain);
@@ -623,12 +549,11 @@ function addToHistory() {
   const govPay = Math.min(val * 0.6, remain);
   const userPay = val - govPay;
   usedGov = Math.min(usedGov + govPay, MAX);
-
   const now = new Date();
   const timeStr = now.toLocaleTimeString('th-TH', { hour: '2-digit', minute: '2-digit' });
   const dateStr = now.toLocaleDateString('th-TH', { day: 'numeric', month: 'short' });
-
   history.unshift({ total: val, gov: govPay, user: userPay, time: timeStr, date: dateStr });
+  saveData();
   renderHistory();
   updateStats();
   amtInput.value = '';
@@ -638,11 +563,7 @@ function addToHistory() {
 
 function renderHistory() {
   if (history.length === 0) {
-    histList.innerHTML = `
-      <div class="empty-state">
-        <div class="empty-icon">📋</div>
-        ยังไม่มีรายการ<br>กด "บันทึกรายการ" เพื่อเริ่ม
-      </div>`;
+    histList.innerHTML = `<div class="empty-state"><div class="empty-icon">📋</div>ยังไม่มีรายการ<br>กด "บันทึกรายการ" เพื่อเริ่ม</div>`;
     return;
   }
   histList.innerHTML = history.map((h, i) => `
@@ -652,14 +573,8 @@ function renderHistory() {
         <div class="h-time">${h.date} · ${h.time}</div>
       </div>
       <div class="hist-right">
-        <div class="hist-col">
-          <div class="hc-label">รัฐจ่าย</div>
-          <div class="hc-val g">${fmt(h.gov)}</div>
-        </div>
-        <div class="hist-col">
-          <div class="hc-label">คุณจ่าย</div>
-          <div class="hc-val r">${fmt(h.user)}</div>
-        </div>
+        <div class="hist-col"><div class="hc-label">รัฐจ่าย</div><div class="hc-val g">${fmt(h.gov)}</div></div>
+        <div class="hist-col"><div class="hc-label">คุณจ่าย</div><div class="hc-val r">${fmt(h.user)}</div></div>
       </div>
     </div>
   `).join('');
@@ -670,6 +585,7 @@ function clearHistory() {
   if (!confirm('ล้างประวัติและรีเซ็ตยอดสิทธิ์ทั้งหมด?')) return;
   history = [];
   usedGov = 0;
+  saveData();
   renderHistory();
   updateStats();
   calc();
@@ -683,8 +599,6 @@ function clearInput() {
 
 amtInput.addEventListener('input', calc);
 amtInput.addEventListener('keydown', e => { if (e.key === 'Enter') addToHistory(); });
-
-updateStats();
 </script>
 </body>
 </html>
